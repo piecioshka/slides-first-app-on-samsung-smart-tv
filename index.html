@@ -33,6 +33,12 @@
         </div>
     </section>
 
+    <section class="slide cover">
+        <div>
+            <img src="net/beer-man.jpg" alt=""/>
+        </div>
+    </section>
+
     <section class="slide">
         <div>
             <h2>How to start?</h2>
@@ -45,15 +51,22 @@
         </div>
     </section>
 
+    <section class="slide cover">
+        <div>
+            <img src="net/tv.jpg" alt=""/>
+        </div>
+    </section>
+
     <section class="slide">
         <div>
             <h2>Necessary (minimum) files</h2>
             <ol>
-                <li>~/projects/<samp>widgetlist.xml</samp></li>
-                <li>~/projects/widget/<samp>first_app.zip</samp></li>
                 <li>~/projects/first_app/<samp>config.xml</samp></li>
                 <li>~/projects/first_app/<samp>index.html</samp></li>
                 <li>~/projects/first_app/scripts/<samp>boot.js</samp></li>
+                <li>~/projects/first_app/images/<samp>thumb.png</samp></li>
+                <li>~/projects/<samp>widgetlist.xml</samp></li>
+                <li>~/projects/widget/<samp>first_app.zip</samp></li>
             </ol>
         </div>
     </section>
@@ -64,13 +77,13 @@
             <pre>
                 <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>
                 <code>&lt;rsp stat="ok"&gt;</code>
-                <code>  &lt;list&gt;</code>
-                <code>    &lt;widget id="<mark>first_app</mark>"&gt;</code>
-                <code>    &lt;title&gt;<mark>first_app</mark>&lt;/title&gt;</code>
-                <code>    &lt;compression size="10000000" type="zip"/&gt;</code>
-                <code>    &lt;download&gt;<mark>http://192.168.1.141/widget/first_app.zip</mark>&lt;/download&gt;</code>
-                <code>    &lt;/widget&gt;</code>
-                <code>  &lt;/list&gt;</code>
+                <code> &lt;list&gt;</code>
+                <code>  &lt;widget id="<mark>first_app</mark>"&gt;</code>
+                <code>  &lt;title&gt;<mark>first_app</mark>&lt;/title&gt;</code>
+                <code>  &lt;compression size="10000000" type="zip"/&gt;</code>
+                <code>  &lt;download&gt;<mark>http://[PC IP]/widget/first_app.zip</mark>&lt;/download&gt;</code>
+                <code>  &lt;/widget&gt;</code>
+                <code> &lt;/list&gt;</code>
                 <code>&lt;/rsp&gt;</code>
             </pre>
         </div>
@@ -93,12 +106,12 @@
             <pre>
                 <code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code>
                 <code>&lt;<mark>widget</mark>&gt;</code>
-                <code>  &lt;BigListIcon&gt;<mark>images/thumb.png</mark>&lt;/BigListIcon&gt;</code>
-                <code>  &lt;type&gt;<mark>user</mark>&lt;/type&gt;</code>
-                <code>  &lt;widgetname&gt;<mark class="important">Project Name</mark>&lt;/widgetname&gt;</code>
-                <code>  &lt;width&gt;<mark>960</mark>&lt;/width&gt;</code>
-                <code>  &lt;height&gt;<mark>540</mark>&lt;/height&gt;</code>
-                <code>  &lt;dcont&gt;<mark>y</mark>&lt;/dcont&gt;</code>
+                <code> &lt;BigListIcon&gt;<mark>images/thumb.png</mark>&lt;/BigListIcon&gt;</code>
+                <code> &lt;type&gt;<mark>user</mark>&lt;/type&gt;</code>
+                <code> &lt;widgetname&gt;<mark class="important">Project Name</mark>&lt;/widgetname&gt;</code>
+                <code> &lt;width&gt;<mark>960</mark>&lt;/width&gt;</code>
+                <code> &lt;height&gt;<mark>540</mark>&lt;/height&gt;</code>
+                <code> &lt;dcont&gt;<mark>y</mark>&lt;/dcont&gt;</code>
                 <code>&lt;/<mark>widget</mark>&gt;</code>
             </pre>
         </div>
@@ -111,10 +124,10 @@
                 <code>&lt;!DOCTYPE html&gt;</code>
                 <code>&lt;html lang="en"&gt;</code>
                 <code>&lt;head&gt;</code>
-                <code>  &lt;script src="<mark class="important">scripts/boot.js</mark>"&gt;&lt;/script&gt;</code>
+                <code> &lt;script src="<mark class="important">scripts/boot.js</mark>"&gt;&lt;/script&gt;</code>
                 <code>&lt;/head&gt;</code>
-                <code>&lt;body&gt;</code>
-                <code>  &lt;img src="<mark>http://lorempixel.com/960/540/sports/</mark>" /&gt;</code>
+                <code>&lt;body style="margin: 0px;"&gt;</code>
+                <code> &lt;img src="<mark>http://lorempixel.com/960/540/sports/</mark>" /&gt;</code>
                 <code>&lt;/body&gt;</code>
                 <code>&lt;/html&gt;</code>
             </pre>
@@ -126,14 +139,13 @@
             <h2>~/projects/first_app/scripts/boot.js</h2>
             <pre>
                 <code><mark class="comment">// Alias to launched widget. `||` for browser protection.</mark></code>
-                <code>var widget = window.<mark>curWidget</mark> || {};</code>
+                <code>var launchWidget = window.<mark>curWidget</mark> || {};</code>
                 <code><mark class="comment">// Smart Hub call method `onload` on launch widget.</mark></code>
                 <code>window.<mark class="important">onload</mark> = function () {</code>
-                <code>  <mark class="comment">// Inform Smart Hub, that app is ready.</mark></code>
-                <code>  <mark class="comment">// `If` for browser protection.</mark></code>
-                <code>  if (typeof widget.setPreference === 'function') {</code>
-                <code>    widget.setPreference('<mark>ready</mark>', '<mark>true</mark>');</code>
-                <code>  }</code>
+                <code> <mark class="comment">// Inform Smart Hub, that app is ready.</mark></code>
+                <code> if (typeof launchWidget.setPreference === 'function') {</code>
+                <code>  launchWidget.setPreference('<mark>ready</mark>', '<mark>true</mark>');</code>
+                <code> }</code>
                 <code>};</code>
             </pre>
         </div>
@@ -141,12 +153,77 @@
 
     <section class="slide">
         <div>
-            <h2>Synchronize process</h2>
+            <h2>~/projects/first_app/images/thumb.png</h2>
+            <ul>
+                <li>Small image with dimensions <samp>95x78px</samp></li>
+                <li>Available format: *.png, *.bmp, *.jpg, *.gif</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Synchronize process!</h2>
 
             <ol>
-                <li>Device request for file <samp>widgetlist.xml</samp></li>
-                <li>Next, device read file, and download defined packages.</li>
+                <li><samp>Remember!</samp>
+                    <ul>
+                        <li>Permission of files in package. Be readable for others!</li>
+                        <li>Disable firewall</li>
+                    </ul>
+                </li>
+                <li>Device requesting for file <samp>widgetlist.xml</samp></li>
+                <li>Next, device read that file, and download defined inside packages</li>
+                <li>After completion shows popup with info</li>
             </ol>
+            <p><em>Now, we could launch our app!</em></p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Boring?</h2>
+            <ul>
+                <li>Video player: VOD, DRM, LIVE STREAMING</li>
+                <li>Communicator with use audio, video</li>
+                <li><samp>Gesture</samp>. Use your hand to control device!</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide cover">
+        <div>
+            <img src="net/tv-gesture.jpg" alt=""/>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Opportunities</h2>
+            <ul>
+                <li>WebWorkers, WebSocket, Canvas</li>
+                <li>Connection with social media</li>
+                <li>HTML5: localStorage, &lt;video&gt; tag (<em>only VOD</em>)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Samples applications</h2>
+            <ul>
+                <li><a href="http://ipla.tv">ipla</a></li>
+                <li>YouTube</li>
+                <li>Twitter</li>
+                <li>Skype</li>
+                <li>Tuba.fm</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide cover">
+        <div>
+            <img src="net/ipla.png" alt=""/>
         </div>
     </section>
 
@@ -154,22 +231,9 @@
         <div>
             <h2>Helpful tools</h2>
             <ol>
-                <li>Gulp - create zip package</li>
-                <li>Weinre - Web Inspector Remote</li>
+                <li><samp>Gulp</samp> - Tasking, ex. create zip package with command: <kbd>$ gulp zip</kbd></li>
+                <li><samp>Weinre</samp> - Web Inspector Remote</li>
             </ol>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>First listing</h2>
-            <pre>
-                <code><mark class="comment">// Crockford style IIFE</mark></code>
-                <code>(function () {</code>
-                <code>  var <mark>someVar</mark> = 'value';</code>
-                <code>  console.<mark class="important">log</mark>(someVar);</code>
-                <code>}());</code>
-            </pre>
         </div>
     </section>
 
@@ -186,13 +250,6 @@
                 </li>
                 <li>Weinre: <code>http://people.apache.org/~pmuellr/weinre-docs/latest/</code></li>
             </ul>
-        </div>
-    </section>
-
-    <section class="slide cover">
-        <div>
-            <h2>Pictures</h2>
-            <img src="http://placeskull.com/960/540" alt="">
         </div>
     </section>
 
