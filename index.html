@@ -24,25 +24,23 @@
 
     <section class="slide">
         <div>
-            <h2>How to start?</h2>
-
-            <ul>
-                <li>TV: Price: <em>+600pln</em></li>
-                <li>... or Blu-Ray: Price: <em>+300pln</em></li>
-                <li>Register account: <em>develop</em>.</li>
-                <li>Installation <em>Samsung Smart TV SDK</em>?</li>
-                <li></li>
-            </ul>
+            <h2>Problems & Restrictions</h2>
+            <ol>
+                <li>Remote controller <em>(without mouse and keyboard)</em></li>
+                <li>Limited space for all view port of application <em>(not infinity longest page)</em></li>
+                <li>Lazy user? <em>(with beer and remote controller on his favorite sofa)</em></li>
+            </ol>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Problems</h2>
+            <h2>How to start?</h2>
             <ol>
-                <li>Remote controller</li>
-                <li>Screen resolution</li>
-                <li>User?</li>
+                <li>TV: Price: <samp>+600pln</samp> or Blu-Ray: Price: <samp>+300pln</samp></li>
+                <li>Register account: <samp>develop</samp></li>
+                <li>Installation on workstation <kbd>Samsung Smart TV SDK</kbd>?</li>
+                <li>Pair IP Address and ... <samp>synchronize</samp>!</li>
             </ol>
         </div>
     </section>
@@ -51,10 +49,103 @@
         <div>
             <h2>Necessary (minimum) files</h2>
             <ol>
-                <li>~/projects/<code>widgetlist.xml</code></li>
-                <li>~/projects/widget/<code>first_app.zip</code></li>
-                <li>~/projects/first_app/<code>config.xml</code></li>
-                <li>~/projects/first_app/<code>index.html</code></li>
+                <li>~/projects/<samp>widgetlist.xml</samp></li>
+                <li>~/projects/widget/<samp>first_app.zip</samp></li>
+                <li>~/projects/first_app/<samp>config.xml</samp></li>
+                <li>~/projects/first_app/<samp>index.html</samp></li>
+                <li>~/projects/first_app/scripts/<samp>boot.js</samp></li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>~/projects/widgetlist.xml</h2>
+            <pre>
+                <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>
+                <code>&lt;rsp stat="ok"&gt;</code>
+                <code>  &lt;list&gt;</code>
+                <code>    &lt;widget id="<mark>first_app</mark>"&gt;</code>
+                <code>    &lt;title&gt;<mark>first_app</mark>&lt;/title&gt;</code>
+                <code>    &lt;compression size="10000000" type="zip"/&gt;</code>
+                <code>    &lt;download&gt;<mark>http://192.168.1.141/widget/first_app.zip</mark>&lt;/download&gt;</code>
+                <code>    &lt;/widget&gt;</code>
+                <code>  &lt;/list&gt;</code>
+                <code>&lt;/rsp&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>~/projects/widget/first_app.zip</h2>
+            <ul>
+                <li>The smaller size of file is better</li>
+                <li>Remember ignore <samp>node_modules</samp> directory</li>
+                <li><samp>Warning!</samp> Packing files, not parent directory!</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>~/projects/first_app/config.xml</h2>
+            <pre>
+                <code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code>
+                <code>&lt;<mark>widget</mark>&gt;</code>
+                <code>  &lt;BigListIcon&gt;<mark>images/thumb.png</mark>&lt;/BigListIcon&gt;</code>
+                <code>  &lt;type&gt;<mark>user</mark>&lt;/type&gt;</code>
+                <code>  &lt;widgetname&gt;<mark class="important">Project Name</mark>&lt;/widgetname&gt;</code>
+                <code>  &lt;width&gt;<mark>960</mark>&lt;/width&gt;</code>
+                <code>  &lt;height&gt;<mark>540</mark>&lt;/height&gt;</code>
+                <code>  &lt;dcont&gt;<mark>y</mark>&lt;/dcont&gt;</code>
+                <code>&lt;/<mark>widget</mark>&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>~/projects/first_app/index.html</h2>
+            <pre>
+                <code>&lt;!DOCTYPE html&gt;</code>
+                <code>&lt;html lang="en"&gt;</code>
+                <code>&lt;head&gt;</code>
+                <code>  &lt;script src="<mark class="important">scripts/boot.js</mark>"&gt;&lt;/script&gt;</code>
+                <code>&lt;/head&gt;</code>
+                <code>&lt;body&gt;</code>
+                <code>  &lt;img src="<mark>http://lorempixel.com/960/540/sports/</mark>" /&gt;</code>
+                <code>&lt;/body&gt;</code>
+                <code>&lt;/html&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>~/projects/first_app/scripts/boot.js</h2>
+            <pre>
+                <code><mark class="comment">// Alias to launched widget. `||` for browser protection.</mark></code>
+                <code>var widget = window.<mark>curWidget</mark> || {};</code>
+                <code><mark class="comment">// Smart Hub call method `onload` on launch widget.</mark></code>
+                <code>window.<mark class="important">onload</mark> = function () {</code>
+                <code>  <mark class="comment">// Inform Smart Hub, that app is ready.</mark></code>
+                <code>  <mark class="comment">// `If` for browser protection.</mark></code>
+                <code>  if (typeof widget.setPreference === 'function') {</code>
+                <code>    widget.setPreference('<mark>ready</mark>', '<mark>true</mark>');</code>
+                <code>  }</code>
+                <code>};</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Synchronize process</h2>
+
+            <ol>
+                <li>Device request for file <samp>widgetlist.xml</samp></li>
+                <li>Next, device read file, and download defined packages.</li>
             </ol>
         </div>
     </section>
