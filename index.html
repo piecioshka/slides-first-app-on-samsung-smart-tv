@@ -34,6 +34,7 @@
                 <li>Limited space for all view port of application <em>(not infinity longest page)</em></li>
                 <li>Lazy user? <em>(with beer and remote controller on his favorite sofa)</em></li>
                 <li>Not everywhere WebKit <em>(in old platforms Maple4)</em></li>
+                <li>Low internet connection <em>(application should always waiting for long request)</em></li>
             </ol>
         </div>
     </section>
@@ -132,7 +133,7 @@
             <h2>~/projects/first_app/images/thumb.png</h2>
             <ul>
                 <li>Small image with dimensions <samp>95x78px</samp></li>
-                <li>Available format: *.png, *.bmp, *.jpg, *.gif</li>
+                <li>Available (tested) format: png, bmp, jpg, gif</li>
             </ul>
         </div>
     </section>
@@ -168,20 +169,29 @@
 
     <section class="slide">
         <div>
-            <h2>Synchronize process!</h2>
+            <h2>Synchronize warnings</h2>
+            <ul>
+                <li>Permission of files in package. Be readable for others!</li>
+                <li>Disable firewall</li>
+            </ul>
+        </div>
+    </section>
 
+    <section class="slide">
+        <div>
+            <h2>Synchronize process</h2>
             <ol>
-                <li><samp>Remember!</samp>
-                    <ul>
-                        <li>Permission of files in package. Be readable for others!</li>
-                        <li>Disable firewall</li>
-                    </ul>
-                </li>
                 <li>Device requesting for file <samp>widgetlist.xml</samp></li>
                 <li>Next, device read that file, and download defined inside packages</li>
                 <li>After completion shows popup with info</li>
             </ol>
-            <p><em>Now, we could launch our app!</em></p>
+            <p><em>Now, we could launch new smart tv app!</em></p>
+        </div>
+    </section>
+
+    <section class="slide cover">
+        <div>
+            <img src="net/yes.jpeg" alt=""/>
         </div>
     </section>
 
@@ -236,26 +246,28 @@
         <div>
             <h2>Helpful tools</h2>
             <ol>
+                <li><samp>Browser</samp> - Develop app for TV, but try keep running on browser</li>
                 <li><samp>Gulp</samp> - Tasking, ex. create zip package with command: <kbd>$ gulp zip</kbd></li>
                 <li><samp>Weinre</samp> - Web Inspector Remote</li>
+                <li><samp>Network Link Conditioner</samp> - Manage your down / up limits</li>
             </ol>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Links</h2>
+            <h2>Resources</h2>
 
             <ul>
-                <li>Development Guide: <a href="http://www.samsungdforum.com/Guide/art00011/index.html">http://www.samsungdforum.com/Guide/art00011/index.html</a></li>
-                <li>Gulp: <a href="http://gulpjs.com/">http://gulpjs.com/</a>
+                <li><a href="http://www.samsungdforum.com/Guide/art00011/index.html">Samsung Development Guide</a></li>
+                <li><a href="http://gulpjs.com/">Gulp</a>
                     <ul>
-                        <li>gulp-zip: <a href="https://npmjs.org/package/gulp-zip">https://npmjs.org/package/gulp-zip</a></li>
-                        <li>gulp-rimraf: <a href="https://npmjs.org/package/gulp-rimraf">https://npmjs.org/package/gulp-rimraf</a></li>
+                        <li><a href="https://npmjs.org/package/gulp-zip">gulp-zip</a></li>
+                        <li><a href="https://npmjs.org/package/gulp-rimraf">gulp-rimraf</a></li>
                     </ul>
                 </li>
-                <li>Weinre: <a href="http://people.apache.org/~pmuellr/weinre-docs/latest/">http://people.apache.org/~pmuellr/weinre-docs/latest/</a></li>
-                <li>Slides: <a href="http://piecioshka.github.io/warsawjs-presentation-first-app-on-smart-tv/">http://piecioshka.github.io/warsawjs-presentation-first-app-on-smart-tv/</a></li>
+                <li><a href="http://people.apache.org/~pmuellr/weinre-docs/latest/">Weinre</a> - Web Inspector Remote</li>
+                <li><a href="http://piecioshka.github.io/warsawjs-presentation-first-app-on-smart-tv/">Current slides</a></li>
             </ul>
         </div>
     </section>
