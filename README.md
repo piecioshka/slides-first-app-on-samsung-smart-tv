@@ -1,4 +1,4 @@
-# WarsawJS Presentation: First app on Samsung Smart TV
+# WarsawJS Slides: First app on Samsung Smart TV
 
 ![Logo](/pictures/logo.png)
 
