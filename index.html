@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=792, user-scalable=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="themes/warsawjs/styles/screen.css">
-    <link rel="stylesheet" href="themes/warsawjs/styles/custom.css">
+    <link rel="stylesheet" href="themes/warsawjs/styles/warsawjs-theme.css">
 </head>
 <body class="list">
     <header class="caption">
@@ -17,11 +17,24 @@
     <section class="slide front-page">
         <div>
             <div class="logo">
-                <img src="pictures/logo.png">
+                <!-- Logo WarsawJS -->
+                <img src="pictures/logo/logo-light.png">
             </div>
-            <div class="content">
-                <h2>WarsawJS: First app on Samsung Smart TV platform</h2>
-                <p>Piotr Kowalski <a href="http://twitter.com/piecioshka">@piecioshka</a>
+            <div class="details">
+                <!-- 1. Avatar -->
+                <img src="pictures/me.jpg" alt="Speaker" />
+
+                <!-- 2. Speaker -->
+                <h2>Piotr Kowalski</h2>
+
+                <!-- 3. Presentation title -->
+                <h2><strong>"First app on Samsung Smart TV platform"</strong></h2>
+
+                <!-- 4. Presentation date -->
+                <h2>2014-09-16</h2>
+
+                <!-- 5. Contact the speaker -->
+                <h2><a href="http://twitter.com/piecioshka">@piecioshka</a></h2>
             </div>
         </div>
     </section>
@@ -41,7 +54,7 @@
 
     <section class="slide cover">
         <div>
-            <img src="pictures/beer-man.jpg" alt=""/>
+            <img src="pictures/net/beer-man.jpg" alt=""/>
         </div>
     </section>
 
@@ -60,7 +73,7 @@
 
     <section class="slide cover">
         <div>
-            <img src="pictures/tv.jpg" alt=""/>
+            <img src="pictures/net/tv.jpg" alt=""/>
         </div>
     </section>
 
@@ -193,7 +206,7 @@
 
     <section class="slide cover">
         <div>
-            <img src="pictures/yes.jpeg" alt=""/>
+            <img src="pictures/net/yes.jpeg" alt=""/>
         </div>
     </section>
 
@@ -212,7 +225,7 @@
 
     <section class="slide cover">
         <div>
-            <img src="pictures/tv-gesture.jpg" alt=""/>
+            <img src="pictures/net/tv-gesture.jpg" alt=""/>
         </div>
     </section>
 
@@ -242,7 +255,7 @@
 
     <section class="slide cover">
         <div>
-            <img src="pictures/ipla.png" alt=""/>
+            <img src="pictures/net/ipla.png" alt=""/>
         </div>
     </section>
 
@@ -281,6 +294,7 @@
     </section>
 
     <p class="badge"><a href="https://github.com/piecioshka/warsawjs-slides-first-app-on-samsung-smart-tv">Fork me on Github</a></p>
+    <p class="badge fullscreen"><a href="#">Fullscreen</a></p>
 
     <div class="progress">
         <div></div>
@@ -289,5 +303,6 @@
     <script src="vendors/gamepad/gamepad.js"></script>
     <script src="vendors/shower/shower.js"></script>
     <script src="vendors/shower/shower.gamepad.js"></script>
+    <script src="modules/fullscreen.js"></script>
 </body>
 </html>
