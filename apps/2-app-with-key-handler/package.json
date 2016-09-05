@@ -1,0 +1,12 @@
+{
+    "private": true,
+    "scripts": {
+        "preinstall": "npm i -g gulp"
+    },
+    "devDependencies": {
+        "gulp": "latest",
+        "gulp-zip": "latest",
+        "gulp-help": "latest",
+        "gulp-rimraf": "latest"
+    }
+}

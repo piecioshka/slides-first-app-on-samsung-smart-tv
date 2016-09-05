@@ -1,0 +1,22 @@
+body, #app {
+    width: 960px;
+    height: 540px;
+}
+
+#app {
+    background: #fff url('../images/logo/logo.png') no-repeat center center;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#app.dark {
+    background: #000 url('../images/logo/logo-dark.png') no-repeat center center;
+}
+
+img {
+    height: 100%;
+    text-align: center;
+}

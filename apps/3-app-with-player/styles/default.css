@@ -1,0 +1,7 @@
+html, body {
+    width: 960px;
+    height: 540px;
+    position: relative;
+}
+
+.sky-hide { position: absolute; left: 1000px; top: 1000px; }

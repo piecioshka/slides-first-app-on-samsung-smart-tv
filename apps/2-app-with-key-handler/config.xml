@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+    <BigListIcon>images/thumbs/logo-dark.png</BigListIcon>
+    <type>user</type>
+    <widgetname>WarsawJS 2</widgetname>
+    <width>960</width>
+    <height>540</height>
+    <dcont>y</dcont>
+</widget>
